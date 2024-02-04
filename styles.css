@@ -12,9 +12,59 @@ body {
 .chicken {
     position: absolute;
     transform-origin: center bottom;
-    transition: transform 0.1s;
+    transition: transform 1s;
+    width: 100px; /* Adjust the chicken width as needed */
+    height: 100px; /* Adjust the chicken height as needed */
+    background: url('chicken1.svg') no-repeat center center;
+    background-size: contain;
+}
+
+#chicken1 {
+    position: absolute;
+    transform-origin: center bottom;
+    transition: transform 1s;
+    width: 10px; /* Adjust the chicken width as needed */
+    height: 100px; /* Adjust the chicken height as needed */
+    background: url('chicken1.svg') no-repeat center center;
+    background-size: contain;
+}
+
+#chicken2 {
+    position: absolute;
+    transform-origin: center bottom;
+    transition: transform 1s;
     width: 50px; /* Adjust the chicken width as needed */
     height: 100px; /* Adjust the chicken height as needed */
-    background: url('chicken.svg') no-repeat center center;
+    background: url('chicken2.svg') no-repeat center center;
+    background-size: contain;
+}
+
+#chicken3 {
+    position: absolute;
+    transform-origin: center bottom;
+    transition: transform 1s;
+    width: 50px; /* Adjust the chicken width as needed */
+    height: 100px; /* Adjust the chicken height as needed */
+    background: url('chicken3.svg') no-repeat center center;
+    background-size: contain;
+}
+
+#chicken4{
+    position: absolute;
+    transform-origin: center bottom;
+    transition: transform 1s;
+    width: 50px; /* Adjust the chicken width as needed */
+    height: 100px; /* Adjust the chicken height as needed */
+    background: url('chicken4.svg') no-repeat center center;
+    background-size: contain;
+}
+
+#chicken5{
+    position: absolute;
+    transform-origin: center bottom;
+    transition: transform 1s;
+    width: 50px; /* Adjust the chicken width as needed */
+    height: 100px; /* Adjust the chicken height as needed */
+    background: url('chicken5.svg') no-repeat center center;
     background-size: contain;
 }

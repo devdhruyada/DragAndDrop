@@ -10,20 +10,23 @@ function createAndAnimateChicken(chickenNumber) {
     const chickenWidth = chicken.offsetWidth;
     const chickenHeight = chicken.offsetHeight;
 
-    let maxX, maxY;
+    // Calculate the initial centered position for each chicken
+    const initialX = Math.random() * (window.innerWidth/2 - chickenWidth);
+    const initialY = Math.random() * (window.innerHeight/2 - chickenHeight);
 
-    function updateMaxCoordinates() {
-        maxX = window.innerWidth - chickenWidth;
-        maxY = window.innerHeight - chickenHeight;
-    }
+    chicken.style.left = `${initialX}px`;
+    chicken.style.top = `${initialY}px`;
 
-    // Initialize the maximum coordinates
-    updateMaxCoordinates();
+    let oscillationDirectionX = 1; // Initial oscillation direction for X-axis
+    let oscillationDirectionY = 1; // Initial oscillation direction for Y-axis
 
     function moveChickenRandomly() {
+        const maxX = window.innerWidth - chickenWidth;
+        const maxY = window.innerHeight - chickenHeight;
+
         // Generate smaller random step values for both horizontal and vertical directions
-        const stepX = (Math.random() * 6 - 3); // Random horizontal step between -3 and 3 pixels
-        const stepY = (Math.random() * 6 - 3); // Random vertical step between -3 and 3 pixels
+        const stepX = (Math.random() * 100 - 50) * oscillationDirectionX; // Random horizontal step between -5 and 5 pixels
+        const stepY = (Math.random() * 100 - 50) * oscillationDirectionY; // Random vertical step between -5 and 5 pixels
 
         let currentX = parseFloat(chicken.style.left);
         let currentY = parseFloat(chicken.style.top);
@@ -36,13 +39,31 @@ function createAndAnimateChicken(chickenNumber) {
         newY = Math.max(0, Math.min(maxY, newY));
 
         chicken.style.transform = `translate(${newX}px, ${newY}px)`;
+
+        // Check if the chicken is outside the viewport and adjust its position
+        const viewportTop = window.scrollY;
+        const viewportBottom = viewportTop + window.innerHeight;
+        const chickenTop = newY;
+        const chickenBottom = newY + chickenHeight;
+
+        if (chickenBottom > viewportTop && chickenTop < viewportBottom) {
+            // Chicken is within the viewport
+            return;
+        }
+
+        // Chicken is outside the viewport, reposition it within the visible area
+        newX = Math.random() * (window.innerWidth - chickenWidth);
+        newY = Math.random() * (window.innerHeight - chickenHeight);
+        chicken.style.transform = `translate(${newX}px, ${newY}px)`;
+
+        // Reverse the oscillation direction when hitting viewport edges
+        oscillationDirectionX *= -1;
+        oscillationDirectionY *= -1;
     }
 
-    // Move each chicken randomly every 500 ms for slower movement
-    setInterval(moveChickenRandomly, 500);
+    // Move each chicken randomly every 150 ms for faster movement
+    setInterval(moveChickenRandomly, 200);
 
-    // Update maximum coordinates when the window is resized
-    window.addEventListener('resize', () => {
-        updateMaxCoordinates();
-    });
+    // Move each chicken randomly immediately
+    moveChickenRandomly();
 }
