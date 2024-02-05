@@ -1,7 +1,7 @@
 const chickenContainer = document.getElementById('chicken-container');
 
 // Create and animate five independent chickens
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i <= 7; i++) {
     createAndAnimateChicken(i);
 }
 
@@ -67,3 +67,10 @@ function createAndAnimateChicken(chickenNumber) {
     // Move each chicken randomly immediately
     moveChickenRandomly();
 }
+
+const yesButton = document.getElementById('yes-button');
+
+yesButton.addEventListener('click', () => {
+    // Load the new HTML file (index2.html) when "Yes" is clicked
+    window.location.href = 'index2.html';
+});

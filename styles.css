@@ -1,7 +1,3 @@
-body {
-    margin: 0;
-    overflow: hidden;
-}
 
 #chicken-container {
     position: relative;
@@ -10,20 +6,22 @@ body {
 }
 
 .chicken {
+    display: none;
     position: absolute;
     transform-origin: center bottom;
     transition: transform 1s;
     width: 100px; /* Adjust the chicken width as needed */
     height: 100px; /* Adjust the chicken height as needed */
-    background: url('chicken1.svg') no-repeat center center;
+    background: url('chicken.svg') no-repeat center center;
     background-size: contain;
+    z-index: 2;
 }
 
 #chicken1 {
     position: absolute;
     transform-origin: center bottom;
     transition: transform 1s;
-    width: 10px; /* Adjust the chicken width as needed */
+    width: 45px; /* Adjust the chicken width as needed */
     height: 100px; /* Adjust the chicken height as needed */
     background: url('chicken1.svg') no-repeat center center;
     background-size: contain;
@@ -43,7 +41,7 @@ body {
     position: absolute;
     transform-origin: center bottom;
     transition: transform 1s;
-    width: 50px; /* Adjust the chicken width as needed */
+    width: 66px; /* Adjust the chicken width as needed */
     height: 100px; /* Adjust the chicken height as needed */
     background: url('chicken3.svg') no-repeat center center;
     background-size: contain;
@@ -53,7 +51,7 @@ body {
     position: absolute;
     transform-origin: center bottom;
     transition: transform 1s;
-    width: 50px; /* Adjust the chicken width as needed */
+    width: 60px; /* Adjust the chicken width as needed */
     height: 100px; /* Adjust the chicken height as needed */
     background: url('chicken4.svg') no-repeat center center;
     background-size: contain;
@@ -63,8 +61,152 @@ body {
     position: absolute;
     transform-origin: center bottom;
     transition: transform 1s;
-    width: 50px; /* Adjust the chicken width as needed */
+    width: 65px; /* Adjust the chicken width as needed */
     height: 100px; /* Adjust the chicken height as needed */
     background: url('chicken5.svg') no-repeat center center;
     background-size: contain;
+}
+
+#chicken6{
+    position: absolute;
+    transform-origin: center bottom;
+    transition: transform 1s;
+    width: 60px; /* Adjust the chicken width as needed */
+    height: 100px; /* Adjust the chicken height as needed */
+    background: url('chicken4.svg') no-repeat center center;
+    background-size: contain;
+}
+
+#chicken7{
+    position: absolute;
+    transform-origin: center bottom;
+    transition: transform 1s;
+    width: 65px; /* Adjust the chicken width as needed */
+    height: 100px; /* Adjust the chicken height as needed */
+    background: url('chicken3.svg') no-repeat center center;
+    background-size: contain;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #9c80d4, #ffb6c1); /* Gradient background with romantic colors */
+    background-size: 100% 200%; /* Background size for animation */
+    animation: backgroundAnimation 10s infinite linear; /* Slowly moving background animation */
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+#background-hearts {
+    position: absolute;
+    top: 20%; /* Adjust the vertical position of the hearts */
+    right: 0; /* Align hearts to the right of the screen */
+    width: 50%; /* Adjust the width of the heart area */
+    height: 100%;
+    pointer-events: none; /* Ensure that the hearts don't interfere with button clicks */
+    z-index: -1; /* Place hearts behind other content */
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    animation: heartbeat 1s infinite alternate;
+    transform: rotate(-45deg);
+    transform-origin: center bottom;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red; /* Heart color */
+    border-radius: 50px 50px 0 0;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+    transform: rotate(-45deg);
+}
+
+.heart::after {
+    top: -10px;
+    left: 10px;
+    transform: rotate(45deg);
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Rest o
+
+
+
+/* Add styles for the rounded box */
+
+/* Existing styles for chickens and container */
+
+/* Updated styles for the rounded box */
+/* Updated styles for the rounded box */
+.rounded-box {
+    position: absolute;
+    width: 600px; /* Adjust the width as needed */
+    height: 350px; /* Adjust the height as needed */
+    background: linear-gradient(to bottom, #b866bc, #ffb6c1); /* Gradient background with romantic colors */
+    border-radius: 20px; /* Adjust the border radius for rounded corners */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center the box horizontally and vertically */
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.question {
+    font-size: 28px; /* Larger font size for the question text */
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    color: #672127; /* Romantic red color for the question text */
+    font-family: "Georgia", serif; /* Elegant serif font */
+}
+
+button {
+    padding: 12px 24px; /* Larger button size for a more inviting appearance */
+    margin: 0 15px; /* Increased margin for better spacing */
+    font-size: 20px; /* Larger font size for the buttons */
+    cursor: pointer;
+    background-color: #efa35d; /* Peachy background color for the buttons */
+    border: none;
+    border-radius: 8px; /* Rounded button corners */
+    color: #fff; /* White text color for better readability */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for button color change */
+}
+
+button:hover {
+    background-color: #e96b67; /* Slightly darker peachy color on hover for an interactive feel */
+}
+
+.toggle-button {
+    position: fixed;
+    top: 20px; /* Adjust the vertical position as needed */
+    right: 20px; /* Adjust the horizontal position as needed */
+    z-index: 999; /* Ensure the button is on top of other elements */
 }

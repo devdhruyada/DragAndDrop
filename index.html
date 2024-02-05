@@ -7,14 +7,35 @@
     <title>Chicken Animation</title>
 </head>
 <body>
+
+    <button class="toggle-button">Want the support of your fellow mates?</button>
+    <audio id="toggleSound" preload="auto">
+        <source src="toggle-sound.mp3" type="audio/mpeg">
+        <!-- Add more source elements for different audio formats if needed -->
+    </audio>
+
     <div id="chicken-container">
         <div class="chicken" id="chicken1"></div>
         <div class="chicken" id="chicken2"></div>
         <div class="chicken" id="chicken3"></div>
         <div class="chicken" id="chicken4"></div>
         <div class="chicken" id="chicken5"></div>
+        <div class="chicken" id="chicken6"></div>
+        <div class="chicken" id="chicken7"></div>
+
         <!-- Five chickens will be added dynamically by JavaScript -->
     </div>
+
+    </div>
+    <div class="rounded-box" id="question-box">
+        <p class="question">Would You Like To Go On A Date With Me Ms.Hen?</p>
+        <button id="yes-button">Yes</button>
+        <button id="no-button">No</button>
+    </div>
+
+    <!-- Include the JavaScript files for each interaction -->
     <script src="script.js"></script>
+    <script src="question.js"></script> <!-- Question functionality JavaScript -->
+
 </body>
 </html>
